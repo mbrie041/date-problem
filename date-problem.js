@@ -11,7 +11,6 @@ const gapAnalysis = function (list, min, max) {
       }
     });
   });
-  // console.log(listedRange);
 
   //check if gapArrayValues are included in listedRange
   const gapArray = gapArrayValues.filter(
@@ -19,9 +18,8 @@ const gapAnalysis = function (list, min, max) {
   );
 
   //turn the new array into an array of nested arrays
-
-  console.log(gapArray);
-  return gapArray;
+  rangeFinder(gapArray);
+  return rangeFinder(gapArray);
 };
 
 const rangeMaker = function (min, max) {
@@ -44,7 +42,12 @@ const rangeFinder = function (values) {
   let previousElement;
 
   sortedArray.forEach((element) => {
-    if (element > previousElement + 1) {
+    if (element > previousElement + 1 && element === endingValue) {
+      returnedArray.push([startingValue, previousElement]);
+      returnedArray.push([element, element]);
+      startingValue = element;
+      previousElement = element;
+    } else if (element > previousElement + 1) {
       returnedArray.push([startingValue, previousElement]);
       startingValue = element;
       previousElement = element;
@@ -67,10 +70,9 @@ module.exports = {
   rangeFinder,
 };
 const list = [
-  [3, 5],
-  [6, 8],
+  [2, 5],
+  [7, 9],
 ];
 const min = 1;
-const max = 20;
+const max = 10;
 gapAnalysis(list, min, max);
-// rangeMaker(1, 3);
