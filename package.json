@@ -1,0 +1,18 @@
+{
+  "name": "date-problem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "date-problem.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.4"
+  }
+}
